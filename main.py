@@ -2,7 +2,21 @@ from src import add
 from src import Agent
 from src import SYSTEM_PROMPT
 
+
+import os
+from dotenv import load_dotenv
+
+load_dotenv()
+
 def main():
+
+    password = os.getenv("password")
+    print(f"user password is {password[0:3]}*****")
+
+    openai_api_key = os.getenv("OPENAI_API_KEY")
+    print(f"openai api key is {openai_api_key[0:8]}*****")
+
+
     print("Hello from my-project-str!")
 
 
