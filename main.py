@@ -6,9 +6,13 @@ from src import SYSTEM_PROMPT
 import os
 from dotenv import load_dotenv
 
+import time
+
 load_dotenv()
 
 def main():
+
+    print("Hello from my-project-str!")
 
     password = os.getenv("password")
     print(f"user password is {password[0:3]}*****")
@@ -17,12 +21,15 @@ def main():
     print(f"openai api key is {openai_api_key[0:8]}*****")
 
 
-    print("Hello from my-project-str!")
+    start = time.perf_counter()
 
 
     agent = Agent("Doctor")
     print(f"My agent name is {agent.name}")
 
+
+    elapsed = time.perf_counter() - start
+    print(f"Time taken: {elapsed} seconds")
 
     print(f"My agent {agent.name} system prompt is \n {SYSTEM_PROMPT}")
 
